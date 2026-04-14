@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PUT A TITLE IN HERE -->
+    <title>Code Cangjie - Interactive Website</title>
+    <!-- PUT A DESCRIPTION IN HERE -->
+    <meta name="description" content="The Interactive Logic of Hanzi" />
+    <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
+
+    <!-- LINK TO YOUR STYLES -->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
+    <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
+    <script src="scripts/scripts.js" defer></script>
+  </head>
+  
+  <body>
+    <!-- YOUR HTML GOES HERE -->
+    <header class="ui-header">
+      <a href="index.html" class="logo">● CODE CANGJIE</a>
+      <nav>
+        <div class="nav-label">MODE:</div>
+        <a href="time-machine.html">TIME MACHINE</a>
+        <a href="logic-lab.html">BECOME CANGJIE</a>
+      </nav>
+    </header>
+
+    <main class="ui-main">
+      <section id="hero" class="ui-panel">
+        <div class="panel-label">[ SYS.ORIGIN ]</div>
+        <div class="hero-content">
+          <h1>Code Cangjie</h1>
+          <div class="divider-line"></div>
+          <p class="subtitle">THE INTERACTIVE LOGIC OF HANZI</p>
+        </div>
+      </section>
+
+      <section id="logic-lab" class="ui-panel split-panel">
+        <div class="left-canvas">
+          <div class="panel-label">[ SYNTHESIS CANVAS ]</div>
+          <div class="canvas-area">
+            <div class="square-module">
+              <button class="radical" data-type="wood">木</button>
+              <button class="radical" data-type="water">水</button>
+              <button class="radical" data-type="fire">火</button>
+              <button class="radical">日</button>
+              <button class="radical">月</button>
+              <button class="radical">人</button>
+              <button class="radical">二</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-analysis">
+          <div class="panel-label">[ ANALYSIS PANEL ]</div>
+
+          <div class="data-block">
+            <div class="small-label">[ RESULT ]</div>
+            <div id="result-display" class="data-readout">
+              -- Awaiting input --
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="small-label">[ STATUS ]</div>
+            <div class="data-readout">AWAITING.INPUT</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="scripts/scripts.js"></script>
+
+    <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
+  </body>
+</html>
