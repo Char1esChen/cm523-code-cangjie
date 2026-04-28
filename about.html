@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,51 +10,97 @@
   <body>
     <header class="ui-header">
       <a href="index.html" class="logo">● CODE CANGJIE</a>
-      <nav>
-        <span class="nav-label">MODE: ABOUT</span>
-        <a href="about.html" style="border-color: var(--color-gray); color: var(--color-text);">ABOUT</a>
-        <a href="manual.html">MANUAL</a>
+      <nav class="top-nav">
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">TERMINAL</a>
+          <a href="about.html" class="nav-item active">ABOUT</a>
+          <a href="manual.html" class="nav-item">MANUAL</a>
+        </div>
       </nav>
     </header>
 
-    <main class="ui-main">
-      <div class="hero-content" style="padding: 2rem 2rem 4rem 2rem;">
+    <main class="ui-main about-main">
+      <div class="about-header-title">
         <div class="small-label">[ ABOUT ]</div>
-        <h1 style="font-family: var(--font-mono); font-weight: 400; font-size: 3rem;">Code Cangjie</h1>
+        <h1>Code Cangjie</h1>
       </div>
 
-      <section class="document-panel">
-        
-        <div class="doc-section">
-          <div class="small-label" style="padding-left: 0;">[ MISSION ]</div>
+      <div class="bracket-panel">
+        <div class="about-section">
+          <div class="section-label">[ ABOUT THE PROJECT ]</div>
           <p>
-            Code Cangjie is an interactive digital archive exploring the structural logic and visual evolution of Hanzi (Chinese characters). By deconstructing characters into their fundamental radicals, this project aims to bridge ancient etymology with modern interaction design, revealing the underlying philosophical and logical framework of the Chinese writing system.
+            <strong>Code Cangjie</strong> is an interactive web experience that reimagines the
+            creation of Chinese characters (Hanzi). Named after the famous Cangjie (仓颉),
+            a legendary four-eyed figure in ancient mythology who invented
+            Chinese characters by observing the patterns of nature, this project
+            seeks to decode the logic of ancient typography for the digital age.
+          </p>
+          <p style="margin-top: 1rem">
+            By highlighting the system of Associative Compounds (会意), the
+            interactive laboratory reveals the internal "code" behind the
+            strokes. It treats Hanzi not just as calligraphic art, but as a
+            structured data system, demonstrating a unique blend of cultural
+            heritage and modern web technology.
           </p>
         </div>
 
-        <div class="doc-section">
-          <div class="small-label" style="padding-left: 0;">[ CREDITS & ARCHIVES ]</div>
-          <p>
-            <strong>Created by:</strong> Shuhan Chen<br>
-            <strong>View my portfolio at:</strong> <a href="#" class="doc-link">shuhanchen.com</a>
-          </p>
-          <br>
-          <p>
-            <strong>Project Documents:</strong><br>
-            <a href="#" class="doc-link">Project Proposal</a> • 
-            <a href="#" class="doc-link">Wireframes</a> • 
-            <a href="#" class="doc-link">Design Documentation</a> • 
-            <a href="#" class="doc-link">User Report</a>
-          </p>
-          <br>
-          <p>
-            <strong>System Built With (No external APIs used in core logic):</strong><br>
-            HTML5 • CSS3 (Grid/Flexbox) • Vanilla JavaScript (ES6+)<br>
-            <em>Fonts: Space Grotesk, Inter, JetBrains Mono</em>
-          </p>
+        <div class="about-section">
+          <div class="section-label">[ DOCUMENTATION ]</div>
+          <ul class="doc-list">
+            <li>
+              <span class="doc-id">01</span>
+              <a href="https://drive.google.com/file/d/1wmrAvx1lGZvD317D38aKgmgqEYvhK4Ec/view?usp=drive_link" class="doc-link">Project Proposal</a>
+              <span class="doc-status">V1.0</span>
+            </li>
+            <li>
+              <span class="doc-id">02</span>
+              <a href="https://drive.google.com/file/d/1WwTvPjlREhMGtP3GcmWvQ2dXjdFJcFfo/view?usp=drive_link" class="doc-link">Wireframes</a>
+              <span class="doc-status">FIGMA</span>
+            </li>
+            <li>
+              <span class="doc-id">03</span>
+              <a href="https://drive.google.com/file/d/1CXE1Qbou96IZ3nHlXgANijtlKmUIsQg3/view?usp=drive_link" class="doc-link">Design Doc</a>
+              <span class="doc-status">FIGMA</span>
+            </li>
+            <li>
+              <span class="doc-id">04</span>
+              <a href="https://docs.google.com/document/d/136Me-8iQMPuqbOWM1DwgOZMShKn97SkehZeqLT6WMd4/edit?usp=drive_link" class="doc-link">AI Use</a>
+              <span class="doc-status">LOG</span>
+            </li>
+            <li>
+              <span class="doc-id">05</span>
+              <a href="https://docs.google.com/document/d/1PDTE4uCD2gK4hNcIH2HI2CAG0lo-Tq4D_t7r35IZlIc/edit?usp=drive_link" class="doc-link">UX Report</a>
+              <span class="doc-status">FINAL</span>
+            </li>
+            <li>
+              <span class="doc-id">06</span>
+              <a href="https://drive.google.com/file/d/12cIxlR1SUSpzFF9_vSXQJ3D3FkyRJxKi/view?usp=drive_link" class="doc-link">Presentation Slides</a>
+              <span class="doc-status">DECK</span>
+            </li>
+            <li>
+              <span class="doc-id">07</span>
+              <a href="https://docs.google.com/document/d/1AIBL4RQathR0OgXoz0p6G2wgn_Y8LKfQVRRYwO8GiHQ/edit?usp=drive_link" class="doc-link">Sources</a>
+              <span class="doc-status">THX</span>
+            </li>
+          </ul>
         </div>
 
-      </section>
+        <div class="about-section">
+          <div class="section-label">[ ABOUT ME ]</div>
+          <p>
+            System Designer & Architect: <strong>Shuhan (Charles) Chen</strong><br />
+            Currently a Junior at Boston University, majoring in Media Science
+            and minoring in Data Science. Born and raised in Shanghai, China.
+            With a strong interest in UI/UX Design, I focus on building digital
+            experiences that bridge the gap between cultural heritage and
+            interactive technology.
+          </p>
+        </div>
+      </div>
+
+      <div class="system-status about-status">
+        <p>● MODULE: ABOUT — READ ONLY</p>
+      </div>
     </main>
   </body>
 </html>

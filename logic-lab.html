@@ -18,24 +18,39 @@
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
     <script src="scripts/scripts.js" defer></script>
   </head>
-  
+
   <body>
     <!-- YOUR HTML GOES HERE -->
     <header class="ui-header">
       <a href="index.html" class="logo">● CODE CANGJIE</a>
-      <nav>
-        <div class="nav-label">MODE:</div>
-        <a href="time-machine.html">TIME MACHINE</a>
-        <a href="logic-lab.html">BECOME CANGJIE</a>
+      <nav class="top-nav">
+        <div class="nav-left-group">
+          <div class="nav-modes">
+            <span class="mode-label">MODE:</span>
+            <a href="time-machine.html" class="nav-item">TIME MACHINE</a>
+            <a href="logic-lab.html" class="nav-item active">BECOME CANGJIE</a>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-item">TERMINAL</a>
+          <a href="about.html" class="nav-item">ABOUT</a>
+          <a href="manual.html" class="nav-item">MANUAL</a>
+        </div>
       </nav>
     </header>
 
     <main class="ui-main">
       <section id="logic-lab" class="ui-panel split-panel">
-        
-        <div class="left-canvas" style="display: flex; flex-direction: column;">
-          
-          <div class="panel-header" style="display: flex; justify-content: space-between; padding: 1rem 2rem 0 2rem;">
+        <div class="left-canvas" style="display: flex; flex-direction: column">
+          <div
+            class="panel-header"
+            style="
+              display: flex;
+              justify-content: space-between;
+              padding: 1rem 2rem 0 2rem;
+            "
+          >
             <div class="panel-label">[ SYNTHESIS CANVAS ]</div>
             <div class="panel-label" id="canvas-status">AWAITING.INPUT</div>
           </div>
@@ -52,7 +67,7 @@
                 <span class="node-content placeholder">EMPTY</span>
               </div>
             </div>
-            
+
             <div class="node-box result-node" id="node-result">
               <span class="node-label">RESULT</span>
               <span class="node-content placeholder">PENDING</span>
@@ -63,26 +78,48 @@
             <div class="panel-label">[ COMPONENT BANK ]</div>
             <div class="bank-controls">
               <div class="square-module">
-                <button class="radical">木</button>
-                <button class="radical">水</button>
-                <button class="radical">火</button>
-                <button class="radical">日</button>
-                <button class="radical">月</button>
-                <button class="radical">人</button>
-                <button class="radical">二</button>
+                <button class="radical" data-value="木" draggable="true">
+                  <span class="char-main">木</span>
+                  <span class="char-sub">WOOD</span>
+                </button>
+                <button class="radical" data-value="水" draggable="true">
+                  <span class="char-main">水</span>
+                  <span class="char-sub">WATER</span>
+                </button>
+                <button class="radical" data-value="火" draggable="true">
+                  <span class="char-main">火</span>
+                  <span class="char-sub">FIRE</span>
+                </button>
+                <button class="radical" data-value="日" draggable="true">
+                  <span class="char-main">日</span>
+                  <span class="char-sub">SUN</span>
+                </button>
+                <button class="radical" data-value="月" draggable="true">
+                  <span class="char-main">月</span>
+                  <span class="char-sub">MOON</span>
+                </button>
+                <button class="radical" data-value="人" draggable="true">
+                  <span class="char-main">人</span>
+                  <span class="char-sub">PERSON</span>
+                </button>
+                <button class="radical" data-value="二" draggable="true">
+                  <span class="char-main">二</span>
+                  <span class="char-sub">TWO</span>
+                </button>
               </div>
               <button id="btn-reset" class="reset-button">↺ RESET</button>
             </div>
           </div>
-
         </div>
 
         <div class="right-analysis">
           <div class="panel-label">[ ANALYSIS PANEL ]</div>
-          
+
           <div class="data-block">
             <div class="small-label">[ RESULT ]</div>
-            <div id="analysis-result" class="data-readout">-- Awaiting input --</div>
+            <div id="analysis-result" class="data-readout">
+              --Awaiting input--
+            </div>
           </div>
 
           <div class="data-block">
@@ -92,31 +129,78 @@
 
           <div class="data-block">
             <div class="small-label">[ LOGIC DECODED ]</div>
-            <div id="analysis-logic" class="data-readout" style="font-size: 0.9rem;">_ _ : _ _ : _ _</div>
+            <div
+              id="analysis-logic"
+              class="data-readout"
+              style="font-size: 0.9rem"
+            >
+              _ _ : _ _ : _ _
+            </div>
           </div>
 
           <div class="data-block">
             <div class="small-label">[ COMPONENTS ]</div>
-            <div class="data-readout" style="font-size: 0.8rem; line-height: 2;">
-              Left Node: <span id="comp-left">--</span><br>
+            <div class="data-readout" style="font-size: 0.8rem; line-height: 2">
+              Left Node: <span id="comp-left">--</span><br />
               Right Node: <span id="comp-right">--</span>
             </div>
           </div>
 
-          <div class="data-block" style="border-bottom: none; margin-top: 1rem;">
+          <div class="data-block" style="border-bottom: none; margin-top: 1rem">
             <div class="small-label">[ KNOWN SYNTHESES ]</div>
-            <ul id="known-syntheses-list" class="data-list syntheses-list">
-              </ul>
+            <ul id="known-syntheses-list" class="data-list syntheses-list"></ul>
           </div>
-
         </div>
-
       </section>
     </main>
 
-    <script src="scripts/scripts.js"></script>
+    <div id="onboarding-modal" class="modal-overlay">
+      <div class="modal-content bracket-panel">
+        <div class="section-label" style="color: var(--color-text)">
+          [ LOGIC LAB: HOW IT WORKS ]
+        </div>
 
+        <p
+          style="
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+          "
+        >
+          Welcome to the Logic Lab.
+        </p>
+        <ul class="doc-list" style="margin-bottom: 2rem">
+          <li>
+            <span class="doc-id">01</span
+            ><span
+              ><strong>DRAG</strong> a radical from the Component Bank at the
+              bottom.</span
+            >
+          </li>
+          <li>
+            <span class="doc-id">02</span
+            ><span><strong>DROP</strong> it into the empty nodes above.</span>
+          </li>
+          <li>
+            <span class="doc-id">03</span
+            ><span
+              >The system will automatically compute the logical
+              combination.</span
+            >
+          </li>
+        </ul>
+
+        <button id="close-modal" class="reset-button" style="width: 100%">
+          INITIALIZE MODULE
+        </button>
+      </div>
+    </div>
+
+    <script src="scripts/scripts.js"></script>
 
     <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
   </body>
+
+  <body class="app-mode"></body>
 </html>

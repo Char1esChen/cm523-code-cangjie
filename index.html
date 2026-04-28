@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" cont
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- PUT A TITLE IN HERE -->
     <title>Code Cangjie - Interactive Website</title>
     <!-- PUT A DESCRIPTION IN HERE -->
@@ -23,41 +23,74 @@
     <!-- YOUR HTML GOES HERE -->
     <header class="ui-header">
       <div class="logo">● CODE CANGJIE</div>
-      <nav>
-        <a href="#">ABOUT</a>
-        <a href="#">MANUAL</a>
+      <nav class="nav-container">
+        <a href="about.html" class="nav-item">ABOUT</a>
+        <a href="manual.html" class="nav-item">MANUAL</a>
       </nav>
     </header>
 
     <main class="ui-main landing-main">
       <div class="landing-center">
         <div class="origin-logo-box">
-          <div
-            class="placeholder-icon"
-            style="
-              font-family: var(--font-heading);
-              font-size: 3rem;
-              color: var(--color-text);
-            "
-          >
-            ◈
-          </div>
+          <img
+            src="images/seal-logo.png"
+            alt="代號倉頡 印章"
+            class="main-seal-logo"
+          />
         </div>
 
-        <div class="hanzi-label">倉 頡</div>
+        <div class="hanzi-label">代 號 倉 頡</div>
         <h1>Code Cangjie</h1>
         <div class="divider-line"></div>
         <p class="subtitle">THE INTERACTIVE LOGIC OF HANZI</p>
 
         <div class="module-cards">
           <a href="time-machine.html" class="module-card">
-            <div class="card-icon">🕒</div>
+            <div class="card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
             <h3>TIME MACHINE</h3>
             <p class="card-desc">Visual Evolution</p>
           </a>
 
           <a href="logic-lab.html" class="module-card">
-            <div class="card-icon">✍️</div>
+            <div class="card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="16" height="16" x="4" y="4" rx="2" />
+                <rect width="6" height="6" x="9" y="9" rx="1" />
+                <path d="M15 2v2" />
+                <path d="M15 20v2" />
+                <path d="M2 15h2" />
+                <path d="M2 9h2" />
+                <path d="M20 15h2" />
+                <path d="M20 9h2" />
+                <path d="M9 2v2" />
+                <path d="M9 20v2" />
+              </svg>
+            </div>
             <h3>BECOME CANGJIE</h3>
             <p class="card-desc">The Logic Lab</p>
           </a>
