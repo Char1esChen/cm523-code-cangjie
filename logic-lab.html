@@ -31,50 +31,91 @@
     </header>
 
     <main class="ui-main">
-      <section id="hero" class="ui-panel">
-        <div class="panel-label">[ SYS.ORIGIN ]</div>
-        <div class="hero-content">
-          <h1>Code Cangjie</h1>
-          <div class="divider-line"></div>
-          <p class="subtitle">THE INTERACTIVE LOGIC OF HANZI</p>
-        </div>
-      </section>
-
       <section id="logic-lab" class="ui-panel split-panel">
-        <div class="left-canvas">
-          <div class="panel-label">[ SYNTHESIS CANVAS ]</div>
-          <div class="canvas-area">
-            <div class="square-module">
-              <button class="radical" data-type="wood">木</button>
-              <button class="radical" data-type="water">水</button>
-              <button class="radical" data-type="fire">火</button>
-              <button class="radical">日</button>
-              <button class="radical">月</button>
-              <button class="radical">人</button>
-              <button class="radical">二</button>
+        
+        <div class="left-canvas" style="display: flex; flex-direction: column;">
+          
+          <div class="panel-header" style="display: flex; justify-content: space-between; padding: 1rem 2rem 0 2rem;">
+            <div class="panel-label">[ SYNTHESIS CANVAS ]</div>
+            <div class="panel-label" id="canvas-status">AWAITING.INPUT</div>
+          </div>
+
+          <div class="synthesis-visualizer">
+            <div class="input-nodes">
+              <div class="node-box" id="node-left">
+                <span class="node-label">LEFT</span>
+                <span class="node-content placeholder">EMPTY</span>
+              </div>
+              <div class="node-operator">+</div>
+              <div class="node-box" id="node-right">
+                <span class="node-label">RIGHT</span>
+                <span class="node-content placeholder">EMPTY</span>
+              </div>
+            </div>
+            
+            <div class="node-box result-node" id="node-result">
+              <span class="node-label">RESULT</span>
+              <span class="node-content placeholder">PENDING</span>
             </div>
           </div>
+
+          <div class="component-bank-container">
+            <div class="panel-label">[ COMPONENT BANK ]</div>
+            <div class="bank-controls">
+              <div class="square-module">
+                <button class="radical">木</button>
+                <button class="radical">水</button>
+                <button class="radical">火</button>
+                <button class="radical">日</button>
+                <button class="radical">月</button>
+                <button class="radical">人</button>
+                <button class="radical">二</button>
+              </div>
+              <button id="btn-reset" class="reset-button">↺ RESET</button>
+            </div>
+          </div>
+
         </div>
 
         <div class="right-analysis">
           <div class="panel-label">[ ANALYSIS PANEL ]</div>
-
+          
           <div class="data-block">
             <div class="small-label">[ RESULT ]</div>
-            <div id="result-display" class="data-readout">
-              -- Awaiting input --
+            <div id="analysis-result" class="data-readout">-- Awaiting input --</div>
+          </div>
+
+          <div class="data-block">
+            <div class="small-label">[ TYPE ]</div>
+            <div id="analysis-type" class="data-readout">_ _ _ _ _</div>
+          </div>
+
+          <div class="data-block">
+            <div class="small-label">[ LOGIC DECODED ]</div>
+            <div id="analysis-logic" class="data-readout" style="font-size: 0.9rem;">_ _ : _ _ : _ _</div>
+          </div>
+
+          <div class="data-block">
+            <div class="small-label">[ COMPONENTS ]</div>
+            <div class="data-readout" style="font-size: 0.8rem; line-height: 2;">
+              Left Node: <span id="comp-left">--</span><br>
+              Right Node: <span id="comp-right">--</span>
             </div>
           </div>
 
-          <div class="data-block">
-            <div class="small-label">[ STATUS ]</div>
-            <div class="data-readout">AWAITING.INPUT</div>
+          <div class="data-block" style="border-bottom: none; margin-top: 1rem;">
+            <div class="small-label">[ KNOWN SYNTHESES ]</div>
+            <ul id="known-syntheses-list" class="data-list syntheses-list">
+              </ul>
           </div>
+
         </div>
+
       </section>
     </main>
 
     <script src="scripts/scripts.js"></script>
+
 
     <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
   </body>
