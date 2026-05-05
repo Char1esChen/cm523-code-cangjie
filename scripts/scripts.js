@@ -168,8 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  const charImage = document.getElementById("current-char-img");
-  const slider = document.getElementById("timeline-slider");
   const titleLabel = document.getElementById("context-title");
   const timeLabel = document.getElementById("context-time");
   const descLabel = document.getElementById("context-desc");
