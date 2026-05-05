@@ -1,5 +1,45 @@
 /* WRITE YOUR JS HERE... YOU MAY REQUIRE MORE THAN ONE JS FILE. IF SO SAVE IT SEPARATELY IN THE SCRIPTS DIRECTORY */
 
+/* MOBILE DRAG & DROP POLYFILL */
+if (typeof MobileDragDrop !== "undefined") {
+  MobileDragDrop.polyfill({
+    holdToDrag: 50,
+  });
+
+  window.addEventListener("touchmove", function () {}, { passive: false });
+}
+
+/* ONBOARDING LOGIC */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("onboarding-modal");
+  const closeBtn = document.getElementById("close-modal");
+
+  if (modal && closeBtn) {
+    const isTimeMachinePage =
+      document.getElementById("timeline-slider") !== null;
+    const isLogicLabPage = document.getElementById("btn-reset") !== null;
+
+    if (isTimeMachinePage) {
+      if (!localStorage.getItem("hasSeenTimeMachine")) {
+        modal.style.display = "flex";
+      }
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        localStorage.setItem("hasSeenTimeMachine", "true");
+      });
+    } else if (isLogicLabPage) {
+      if (!localStorage.getItem("hasSeenLogicLab")) {
+        modal.style.display = "flex";
+      }
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        localStorage.setItem("hasSeenLogicLab", "true");
+      });
+    }
+  }
+});
+
 /* TIME MACHINE */
 
 const slider = document.getElementById("timeline-slider");
@@ -168,6 +208,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  const charImage = document.getElementById("current-char-img");
+  const slider = document.getElementById("timeline-slider");
   const titleLabel = document.getElementById("context-title");
   const timeLabel = document.getElementById("context-time");
   const descLabel = document.getElementById("context-desc");
@@ -300,6 +342,7 @@ radicals.forEach((btn) => {
 const dropZones = [nodeLeftBox, nodeRightBox];
 
 dropZones.forEach((zone) => {
+  if (!zone) return;
   zone.addEventListener("dragover", (e) => {
     e.preventDefault();
     zone.classList.add("drag-over-active");
@@ -387,23 +430,33 @@ function resetLab() {
 
 if (btnReset) btnReset.addEventListener("click", resetLab);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("onboarding-modal");
-  const closeBtn = document.getElementById("close-modal");
-
-  if (!localStorage.getItem("hasSeenLogicLab")) {
-    modal.style.display = "flex";
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      localStorage.setItem("hasSeenLogicLab", "true");
-    });
-  }
-});
-
 function handleDragStart(e) {
   let val = e.target.getAttribute("data-value");
   e.dataTransfer.setData("text/plain", val);
 }
+
+/* CLICK TO DRAG COMPONENTS */
+document.addEventListener("click", (e) => {
+  const clickedBtn = e.target.closest(".radical");
+  if (!clickedBtn) return;
+
+  const left = document.querySelector("#node-left .node-content");
+  const right = document.querySelector("#node-right .node-content");
+  const char = clickedBtn.getAttribute("data-value");
+
+  if (left && left.innerText === "EMPTY") {
+    left.innerText = char;
+    left.classList.remove("placeholder");
+    const compL = document.getElementById("comp-left");
+    if (compL) compL.innerText = char;
+  } else if (right && right.innerText === "EMPTY") {
+    right.innerText = char;
+    right.classList.remove("placeholder");
+    const compR = document.getElementById("comp-right");
+    if (compR) compR.innerText = char;
+  }
+
+  if (typeof checkSynthesis === "function") {
+    checkSynthesis();
+  }
+});
